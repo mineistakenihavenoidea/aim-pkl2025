@@ -32,7 +32,7 @@ class AgendaWidget extends BaseWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('nama_agenda')->label('Nama'),
+            Tables\Columns\TextColumn::make('nama_agenda')->label('Nama')->limit(25),
             Tables\Columns\TextColumn::make('lokasi')->label('Keperluan'),
             Tables\Columns\TextColumn::make('tanggal')->date('d M Y')->label('Tanggal'),
             Tables\Columns\TextColumn::make('keterangan')->label('Keterangan'),

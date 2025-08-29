@@ -5,9 +5,11 @@ namespace App\Filament\Widgets;
 use App\Models\BukuTamu;
 use App\Models\FormPertanyaan;
 use App\Models\Magang;
+use App\Models\Feedback;
 use App\Filament\Resources\FormPertanyaanResource;
 use App\Filament\Resources\BukuTamuResource;
 use App\Filament\Resources\MagangResource;
+use App\Filament\Resources\FeedbackResource;
 
 use Illuminate\Support\Carbon;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -37,6 +39,13 @@ class StatsOverview extends BaseWidget
                 ->description('Form pertanyaan baru hari ini')
                 ->icon('heroicon-s-document')
                 ->url(FormPertanyaanResource::getUrl('index')),
+
+            Card::make('Rata-rata Rating', number_format(
+                Feedback::avg('rating'), 1 // ⬅️ 1 decimal
+            ))
+                ->description('Nilai rata-rata dari semua feedback')
+                ->icon('heroicon-o-star')
+                ->url(\App\Filament\Resources\FeedbackResource::getUrl('index')),
             
         ];
     }
