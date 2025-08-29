@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FeedbackWidget extends BaseWidget
 {
-    // Make the widget span only 2 columns (like 2 StatsOverview cards)
-
     protected function getTableHeading(): string|\Illuminate\Contracts\Support\Htmlable
     {
         return new \Illuminate\Support\HtmlString(
@@ -22,26 +20,28 @@ class FeedbackWidget extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
-        return Feedback::query()->latest();
+        return Feedback::query()->latest()->take(5);
     }
 
     protected function getTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('nama')
-            ->label('Nama'),
+                ->label('Nama'),
+
             Tables\Columns\TextColumn::make('rating')
-            ->label('Rating')
-            ->formatStateUsing(fn ($state) => str_repeat('⭐', $state)),
+                ->label('Rating')
+                ->formatStateUsing(fn ($state) => str_repeat('⭐', $state)),
+
             Tables\Columns\TextColumn::make('feedback')
-            ->Label('Feedback')
-            ->wrap(),
+                ->label('Feedback')
+                ->wrap(),
         ];
     }
 
-    // Show only 5 rows
-    protected function getDefaultTablePaginationPageOption(): int
+    // 🚀 Disable pagination
+    protected function isTablePaginationEnabled(): bool
     {
-        return 5;
+        return false;
     }
 }

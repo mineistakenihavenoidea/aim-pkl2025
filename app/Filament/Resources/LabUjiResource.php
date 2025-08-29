@@ -36,10 +36,8 @@ class LabUjiResource extends Resource
                 ->required(),
                 FileUpload::make('gambar')
                 ->directory('uploads/labuji')
-                ->disk('public')
-                ->required(),
+                ->disk('public'),
                 RichEditor::make('deskripsi')
-                ->required()
                 ->columnSpanFull(),
                 //
             ]);
@@ -52,7 +50,9 @@ class LabUjiResource extends Resource
                 TextColumn::make('judul'),
                 ImageColumn::make('gambar'),
                 TextColumn::make('deskripsi')
-                ->html(),
+                ->html()
+                ->wrap()
+                ->limit(100),
                 //
             ])
             ->filters([

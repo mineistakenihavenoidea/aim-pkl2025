@@ -26,7 +26,7 @@ class AgendaWidget extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
-        return Agenda::query()->latest();
+        return Agenda::query()->latest()->take(5);
     }
 
     protected function getTableColumns(): array
@@ -34,13 +34,13 @@ class AgendaWidget extends BaseWidget
         return [
             Tables\Columns\TextColumn::make('nama_agenda')->label('Nama'),
             Tables\Columns\TextColumn::make('lokasi')->label('Keperluan'),
-            Tables\Columns\TextColumn::make('tanggal/jam')->date('d M Y')->label('Tanggal/Jam'),
+            Tables\Columns\TextColumn::make('tanggal')->date('d M Y')->label('Tanggal'),
             Tables\Columns\TextColumn::make('keterangan')->label('Keterangan'),
         ];
     }
 
-    protected function getDefaultTablePaginationPageOption(): int
+    protected function isTablePaginationEnabled(): bool
     {
-        return 5;
+        return false;
     }
 }

@@ -39,12 +39,12 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
                 \App\Filament\Widgets\StatsOverview::class,
+                \App\Filament\Widgets\AgendaWidget::class,
                 \App\Filament\Widgets\BukuTamuWidget::class,
                 \App\Filament\Widgets\FeedbackWidget::class,
                 \App\Filament\Widgets\KerjasamaWidget::class,
                 \App\Filament\Widgets\TentangKamiHtml::class,
                 \App\Filament\Widgets\MediaWidget::class,
-                \App\Filament\Widgets\AgendaWidget::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
 

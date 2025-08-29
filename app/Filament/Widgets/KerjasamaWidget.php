@@ -47,8 +47,8 @@ class KerjasamaWidget extends BaseWidget
     }
 
     // Show only 5 rows
-    protected function getDefaultTablePaginationPageOption(): int
+    protected function isTablePaginationEnabled(): bool
     {
-        return 5;
+        return false;
     }
 }

@@ -7,7 +7,7 @@ use App\Filament\Resources\AgendaResource\RelationManagers;
 use App\Models\Agenda;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
@@ -32,13 +32,13 @@ class AgendaResource extends Resource
                 TextInput::make('nama_agenda')
                 ->required(),
 
-                DateTimePicker::make('tanggal/jam')
-                ->label('Tanggal/Jam Acara')
+                DatePicker::make('tanggal')
+                ->label('TanggalAcara')
                 ->required()
                 ->native(false)          // use Flatpickr instead of browser picker
                 ->withoutSeconds()       // hide seconds
                 ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y H:i'), // Monday start,
+                ->displayFormat('d F Y'), // Monday start,
                 Textarea::make('lokasi')
                 ->required(),
                 Textarea::make('keterangan'),
@@ -51,13 +51,14 @@ class AgendaResource extends Resource
             ->columns([
                 TextColumn::make('nama_agenda')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->wrap(),
                 TextColumn::make('lokasi')
                 ->limit(50)
                 ->sortable()
                 ->searchable(),
-                TextColumn::make('tanggal/jam')
-                ->dateTime('d F Y H:i')
+                TextColumn::make('tanggal')
+                ->dateTime('d F Y')
                 ->sortable()
                 ->searchable(),
                 TextColumn::make('keterangan')

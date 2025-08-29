@@ -38,8 +38,8 @@ class BukuTamuWidget extends BaseWidget
         ];
     }
 
-    protected function getDefaultTablePaginationPageOption(): int
+    protected function isTablePaginationEnabled(): bool
     {
-        return 5;
+        return false;
     }
 }

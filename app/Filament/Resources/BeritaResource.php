@@ -61,11 +61,14 @@ class BeritaResource extends Resource
         ->columns([
             TextColumn::make('judul')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->wrap()
+                ->limit(100),
             TextColumn::make('konten')
-                ->limit(120)
+                ->limit(100)
                 ->html()
-                ->sortable(),
+                ->sortable()
+                ->wrap(),
 
             // Pulls from the accessor above
             ImageColumn::make('cover_path')

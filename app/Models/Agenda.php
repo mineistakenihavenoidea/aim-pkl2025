@@ -12,7 +12,7 @@ class Agenda extends Model
     protected $fillable = [
         'nama_agenda',
         'lokasi',
-        'tanggal/jam',
+        'tanggal',
         'keterangan',
         'user_id',
     ];
