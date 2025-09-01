@@ -23,8 +23,6 @@ class GaleriKegiatanResource extends Resource
 {
     protected static ?string $model = GaleriKegiatan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?string $navigationGroup = 'Berita Kegiatan';
 
     public static function form(Form $form): Form

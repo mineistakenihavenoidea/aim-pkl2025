@@ -20,8 +20,6 @@ class FormPertanyaanResource extends Resource
 {
     protected static ?string $model = FormPertanyaan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?string $navigationGroup = 'Interaksi';
 
     public static function form(Form $form): Form

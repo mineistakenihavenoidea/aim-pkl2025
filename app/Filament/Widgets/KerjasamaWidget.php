@@ -30,19 +30,24 @@ class KerjasamaWidget extends BaseWidget
         return [
             Tables\Columns\TextColumn::make('nama')
             ->label('Nama')
-            ->wrap(), // forces wrapping instead of single-line, ->limit(30) // optional, limits characters,
+            ->wrap()
+            ->limit(25), // forces wrapping instead of single-line, ->limit(30) // optional, limits characters,
             Tables\Columns\TextColumn::make('lembaga')
             ->label('Lembaga')
-            ->wrap(),
+            ->wrap()
+            ->limit(25),
             Tables\Columns\TextColumn::make('jenis')
             ->label('Jenis')
-            ->wrap(),
+            ->wrap()
+            ->limit(25),
             Tables\Columns\TextColumn::make('mulai')
             ->date('d F Y')
-            ->wrap(),
+            ->wrap()
+            ->limit(25),
             Tables\Columns\TextColumn::make('selesai')
             ->date('d F Y')
-            ->wrap(),
+            ->wrap()
+            ->limit(25),
         ];
     }
 

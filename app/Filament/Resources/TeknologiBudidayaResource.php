@@ -23,8 +23,6 @@ class TeknologiBudidayaResource extends Resource
 {
     protected static ?string $model = TeknologiBudidaya::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?string $navigationGroup = 'Produk';
 
     public static function form(Form $form): Form

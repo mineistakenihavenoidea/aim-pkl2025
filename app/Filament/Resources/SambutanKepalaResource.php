@@ -23,8 +23,6 @@ class SambutanKepalaResource extends Resource
 {
     protected static ?string $model = SambutanKepala::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?string $navigationGroup = 'Profil';
 
     public static function form(Form $form): Form
