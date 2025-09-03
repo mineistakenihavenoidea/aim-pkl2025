@@ -11,14 +11,7 @@ class KerjasamaWidget extends BaseWidget
 {
     // Make the widget span only 2 columns (like 2 StatsOverview cards)
 
-    protected function getTableHeading(): string|\Illuminate\Contracts\Support\Htmlable
-    {
-        return new \Illuminate\Support\HtmlString(
-            '<a href="' . \App\Filament\Resources\KerjasamaResource::getUrl('index') . '" class="text-lg font-bold mb-3 underline">
-                Kerjasama
-            </a>'
-        );
-    }
+    protected static string $view = 'filament.widgets.agenda-widget'; // point to your custom blade view
 
     protected function getTableQuery(): Builder
     {

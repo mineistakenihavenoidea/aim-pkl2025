@@ -19,10 +19,10 @@ class AgendaWidget extends BaseWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('nama_agenda')->label('Nama')->limit(25),
-            Tables\Columns\TextColumn::make('lokasi')->label('Lokasi'),
-            Tables\Columns\TextColumn::make('tanggal')->date('d M Y')->label('Tanggal'),
-            Tables\Columns\TextColumn::make('keterangan')->label('Keterangan'),
+            Tables\Columns\TextColumn::make('nama_agenda')->label('Nama')->limit(20),
+            Tables\Columns\TextColumn::make('lokasi')->label('Lokasi')->limit(20),
+            Tables\Columns\TextColumn::make('tanggal')->date('d M Y')->label('Tanggal')->limit(20),
+            Tables\Columns\TextColumn::make('keterangan')->label('Keterangan')->limit(20),
         ];
     }
 

@@ -9,20 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class BukuTamuWidget extends BaseWidget
 {
-//    public function getHeading(): string
-//    {
-//        return 'Daftar Buku Tamu'; // widget/card title
-//    }
-
-    protected function getTableHeading(): string|\Illuminate\Contracts\Support\Htmlable
-    {
-        return new \Illuminate\Support\HtmlString(
-            '<a href="' . \App\Filament\Resources\BukuTamuResource::getUrl('index') . '" class="text-lg font-bold mb-3 underline">
-                Buku Tamu
-            </a>'
-        );
-    }
-
+    protected static string $view = 'filament.widgets.bukutamu-widget'; // point to your custom blade view
 
     protected function getTableQuery(): Builder
     {

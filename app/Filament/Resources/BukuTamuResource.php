@@ -44,7 +44,8 @@ class BukuTamuResource extends Resource
 
                 Textarea::make('keperluan')
                 ->rows(5)
-                ->required(),
+                ->required()
+                ->autosize(),
                 //
             ]);
     }

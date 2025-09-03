@@ -12,14 +12,11 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Hidden;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Grid;
-
-
 
 class FaqResource extends Resource
 {
@@ -28,12 +25,24 @@ class FaqResource extends Resource
     protected static ?string $navigationGroup = 'Interaksi';
 
     public static function form(Form $form): Form
-    {
-        return $form->schema([
-            TextInput::make('pertanyaan')->required(),
-            Textarea::make('jawaban')->required(),
-        ]);
-    }
+{
+    return $form->schema([
+        Forms\Components\Grid::make(3)
+            ->schema([
+                TextInput::make('pertanyaan')
+                    ->label('Pertanyaan')
+                    ->required()
+                    ->columnSpan(2), // only 1 column wide, but Grid will force it as a row
+
+                Textarea::make('jawaban')
+                    ->label('Jawaban')
+                    ->required()
+                    ->autosize()
+                    ->columnSpan(2), // same thing here
+            ]), // treat it like rows
+    ]);
+}
+
 
     public static function table(Table $table): Table
     {
