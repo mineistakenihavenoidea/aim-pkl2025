@@ -29,13 +29,14 @@ class GaleriKegiatanResource extends Resource
     {
         return $form
         ->schema([
-            Grid::make(2)
+            Grid::make(3)
             ->schema([
                 TextInput::make('judul')
-                ->required(),
-
+                ->required()
+                ->columnspan(1),
                 FileUpload::make('gambar')
                 ->multiple()
+                ->columnspan(1)
                 ->directory('uploads/galeri kegiatan')
                 ->disk('public') // super important
                 ->saveRelationshipsUsing(function ($record, $state) {
@@ -45,11 +46,10 @@ class GaleriKegiatanResource extends Resource
                             'media_type' => 'image',
                         ]);
                     }
-                })
+                }),
+                RichEditor::make('info')
+                ->columnSpanFull(),
             ]),
-
-            RichEditor::make('info')
-            ->columnSpanFull(),
         ]);
     }
 

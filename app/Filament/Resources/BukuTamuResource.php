@@ -29,25 +29,28 @@ class BukuTamuResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
+        return $form->schema([
+            Grid::make(3)
             ->schema([
                 TextInput::make('nama')
-                ->required(),
-
+                ->required()
+                ->columnspan(1),
                 DatePicker::make('tanggal')
                 ->label('Tanggal')
                 ->required()
+                ->columnspan(1)
                 ->native(false)          // use Flatpickr instead of browser picker
                 ->withoutSeconds()       // hide seconds
                 ->minutesStep(15)        // minute increments
                 ->displayFormat('d F Y'), // Monday start,
-
                 Textarea::make('keperluan')
                 ->rows(5)
                 ->required()
-                ->autosize(),
+                ->autosize()
+                ->columnspan(2),
                 //
-            ]);
+            ])
+        ]);
     }
 
     public static function table(Table $table): Table

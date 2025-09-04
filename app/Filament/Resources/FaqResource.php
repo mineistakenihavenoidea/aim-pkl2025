@@ -27,17 +27,15 @@ class FaqResource extends Resource
     public static function form(Form $form): Form
 {
     return $form->schema([
-        Forms\Components\Grid::make(3)
+        Grid::make(3)
             ->schema([
                 TextInput::make('pertanyaan')
                     ->label('Pertanyaan')
                     ->required()
                     ->columnSpan(2), // only 1 column wide, but Grid will force it as a row
-
-                Textarea::make('jawaban')
+                TextInput::make('jawaban')
                     ->label('Jawaban')
                     ->required()
-                    ->autosize()
                     ->columnSpan(2), // same thing here
             ]), // treat it like rows
     ]);

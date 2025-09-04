@@ -27,19 +27,30 @@ class AgendaResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama_agenda')
-                ->required(),
-
-                DatePicker::make('tanggal')
-                ->label('TanggalAcara')
-                ->required()
-                ->native(false)          // use Flatpickr instead of browser picker
-                ->withoutSeconds()       // hide seconds
-                ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y'), // Monday start,
-                Textarea::make('lokasi')
-                ->required(),
-                Textarea::make('keterangan'),
+                Grid::make(3)
+                ->schema([
+                    TextInput::make('nama_agenda')
+                    ->required()
+                    ->columnspan(1),
+                    DatePicker::make('tanggal')
+                    ->label('TanggalAcara')
+                    ->required()
+                    ->native(false)          // use Flatpickr instead of browser picker
+                    ->withoutSeconds()       // hide seconds
+                    ->minutesStep(15)        // minute increments
+                    ->displayFormat('d F Y')
+                    ->columnspan(1), // Monday start,
+                ]), // treat it like rows
+                Grid::make(3)
+                ->schema([
+                    TextInput::make('lokasi')
+                    ->required()
+                    ->columnspan(1),
+                    Textarea::make('keterangan')
+                    ->columnspan(1)
+                    ->autosize(),
+                ]),
+                
             ]);
     }
 

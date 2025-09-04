@@ -17,6 +17,7 @@ use Mokhosh\FilamentRating\Components\Rating;
 use Mokhosh\FilamentRating\Columns\RatingColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Textarea;
 
 class FeedbackResource extends Resource
 {
@@ -27,13 +28,20 @@ class FeedbackResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            TextInput::make('nama')
-            ->required(),
-            Rating::make('rating') // Use half-star theme
-            ->stars(5)
-            ->color('primary')
-            ->required(),
-            TextInput::make('feedback'),
+            Grid::make(3)
+            ->schema([
+                TextInput::make('nama')
+                ->required()
+                ->columnspan(1),
+                Rating::make('rating') // Use half-star theme
+                ->stars(5)
+                ->color('primary')
+                ->required()
+                ->columnspan(1),
+                Textarea::make('feedback')
+                ->autosize()
+                ->columnspan(2),
+            ])
         ]);
     }
 

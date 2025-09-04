@@ -29,13 +29,14 @@ class BeritaResource extends Resource
     {
         return $form
         ->schema([
-            Grid::make(2)
+            Grid::make(3)
             ->schema([
                 TextInput::make('judul')
-                ->required(),
-
+                ->required()
+                ->columnspan(1),
                 FileUpload::make('gambar')
                 ->multiple()
+                ->columnspan(1)
                 ->directory('uploads/berita')
                 ->disk('public') // super important
                 ->saveRelationshipsUsing(function ($record, $state) {
@@ -45,11 +46,10 @@ class BeritaResource extends Resource
                             'media_type' => 'image',
                         ]);
                     }
-                })
+                }),
+                RichEditor::make('konten')
+                ->columnSpanFull(),
             ]),
-
-            RichEditor::make('konten')
-            ->columnSpanFull(),
         ]);
     }
 
