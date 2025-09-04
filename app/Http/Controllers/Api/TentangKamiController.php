@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\TentangKami;
 use Illuminate\Http\Request;
 
 class TentangKamiController extends Controller

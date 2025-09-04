@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Struktur;
 use Illuminate\Http\Request;
 
 class StrukturController extends Controller

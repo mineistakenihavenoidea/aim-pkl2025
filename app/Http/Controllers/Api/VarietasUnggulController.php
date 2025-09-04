@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\VarietasUnggul;
 use Illuminate\Http\Request;
 
 class VarietasUnggulController extends Controller

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kunjungan;
 use Illuminate\Http\Request;
 
 class KunjunganController extends Controller

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\FormPertanyaan;
 use Illuminate\Http\Request;
 
 class FormPertanyaanController extends Controller

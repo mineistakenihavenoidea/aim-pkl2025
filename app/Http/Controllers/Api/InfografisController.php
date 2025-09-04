@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Infografis;
 use Illuminate\Http\Request;
 
 class InfografisController extends Controller

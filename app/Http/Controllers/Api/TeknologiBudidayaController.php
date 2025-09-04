@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\TeknologiBudidaya;
 use Illuminate\Http\Request;
 
-class TeknologiBudidaya extends Controller
+class TeknologiBudidayaController extends Controller
 {
     /**
      * Display a listing of the resource.
