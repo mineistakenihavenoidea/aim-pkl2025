@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -29,10 +30,17 @@ class TeknologiBudidayaResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama_tanaman')
-                ->required(),
-                TextInput::make('budidaya'),
+                grid::make(3)
+                ->schema([
+                    TextInput::make('nama_tanaman')
+                    ->required()
+                    ->label('Judul')
+                    ->columnspan(2),
+                    Textarea::make('budidaya')
+                    ->columnspan(2)
+                    ->label('Informasi'),
                 //
+                ])
             ]);
     }
 

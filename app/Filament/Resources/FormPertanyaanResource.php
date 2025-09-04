@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
 
@@ -26,15 +27,22 @@ class FormPertanyaanResource extends Resource
     {
         return $form
             ->schema([
-            TextInput::make('nama')
-            ->required(),
-            TextInput::make('kontak')
-            ->required(),
-            TextInput::make('pertanyaan')
-            ->required(),
-            TextInput::make('subjek')
-            ->required(),
+                Grid::make(3)
+                ->schema([
+                    TextInput::make('nama')
+                    ->required()
+                    ->columnspan(2),
+                    TextInput::make('kontak')
+                    ->required()
+                    ->columnspan(2),
+                    TextInput::make('subjek')
+                    ->required()
+                    ->columnspan(2),
+                    Textarea::make('pertanyaan')
+                    ->required()
+                    ->columnspan(2),
                 //
+                ])
             ]);
     }
 

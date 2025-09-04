@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
@@ -31,28 +32,34 @@ class KerjasamaResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama')
-                ->required(),
-                TextInput::make('lembaga')
-                ->required(),
-                TextInput::make('jenis')
-                ->label('jenis kerjasama')
-                ->required(),
-                DatePicker::make('mulai')
-                ->label('mulai')
-                ->native(false)          // use Flatpickr instead of browser picker
-                ->withoutSeconds()       // hide seconds
-                ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y')// Monday start,
-                ->required(),
-                DatePicker::make('selesai')
-                ->label('selesai')
-                ->required()
-                ->native(false)          // use Flatpickr instead of browser picker
-                ->withoutSeconds()       // hide seconds
-                ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y'), // Monday start,
+                grid::make(4)
+                ->schema([
+                    TextInput::make('nama')
+                    ->required()
+                    ->columnspan(2),
+                    TextInput::make('lembaga')
+                    ->required()
+                    ->columnspan(2),
+                    TextInput::make('jenis')
+                    ->label('jenis kerjasama')
+                    ->required()
+                    ->columnspan(2),
+                    DatePicker::make('mulai')
+                    ->label('mulai')
+                    ->native(false)          // use Flatpickr instead of browser picker
+                    ->withoutSeconds()       // hide seconds
+                    ->minutesStep(15)        // minute increments
+                    ->displayFormat('d F Y')// Monday start,
+                    ->required(),
+                    DatePicker::make('selesai')
+                    ->label('selesai')
+                    ->required()
+                    ->native(false)          // use Flatpickr instead of browser picker
+                    ->withoutSeconds()       // hide seconds
+                    ->minutesStep(15)        // minute increments
+                    ->displayFormat('d F Y'), // Monday start,
                 //
+                ])
             ]);
     }
 

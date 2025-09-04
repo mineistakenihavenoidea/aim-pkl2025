@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
@@ -30,13 +31,19 @@ class PenyediaanBenihResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama')
-                ->required(),
-                TextInput::make('stok')
-                ->required()
-                ->numeric(),
-                TextInput::make('keterangan'),
-                //
+                grid::make(3)
+                ->schema([
+                    TextInput::make('nama')
+                    ->required()
+                    ->columnspan(1),
+                    TextInput::make('stok')
+                    ->required()
+                    ->numeric()
+                    ->columnspan(1),
+                    Textarea::make('keterangan')
+                    ->autosize()
+                    ->columnspan(2),
+                ])
             ]);
     }
 

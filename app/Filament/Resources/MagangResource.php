@@ -31,20 +31,29 @@ class MagangResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('lembaga')
-                ->required(),
-                TextInput::make('jumlah_orang')
-                ->numeric()
-                ->required(),
-                DatePicker::make('mulai')
-                ->required()
-                ->native(false)           // minute increments
-                ->displayFormat('d F Y'),
-                DatePicker::make('selesai')
-                ->required()
-                ->native(false)           // minute increments
-                ->displayFormat('d F Y'),
-                //
+                grid::make(3)
+                ->schema([
+                    TextInput::make('lembaga')
+                    ->required()
+                    ->columnspan(1),
+                    TextInput::make('jumlah_orang')
+                    ->numeric()
+                    ->required()
+                    ->columnspan(1),
+                ]),
+                grid::make(3)
+                ->schema([
+                    DatePicker::make('mulai')
+                    ->required()
+                    ->native(false)           // minute increments
+                    ->displayFormat('d F Y')
+                    ->columnspan(1),
+                    DatePicker::make('selesai')
+                    ->required()
+                    ->native(false)
+                    ->columnspan(1)           // minute increments
+                    ->displayFormat('d F Y'),
+                ])
             ]);
     }
 

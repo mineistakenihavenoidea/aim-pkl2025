@@ -30,17 +30,26 @@ class StrukturResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama')
-                ->required(),
-                FileUpload::make('gambar')
-                ->directory('uploads/struktur')
-                ->disk('public')
-                ->required(),
-                Select::make('id')
-                ->relationship('category', 'jabatan')
-                ->label('Jabatan')
-                ->preload()
-                ->required(),
+                grid::make(2)
+                ->schema([
+                    TextInput::make('nama')
+                    ->required()
+                    ->columnspan(1),
+                    FileUpload::make('gambar')
+                    ->directory('uploads/struktur')
+                    ->disk('public')
+                    ->required()
+                    ->columnspan(1),
+                ]),
+                grid::make(2)
+                ->schema([
+                    Select::make('id')
+                    ->relationship('category', 'jabatan')
+                    ->label('Jabatan')
+                    ->preload()
+                    ->required()
+                    ->columnspan(1),
+                ]),
             ]);
     }
 

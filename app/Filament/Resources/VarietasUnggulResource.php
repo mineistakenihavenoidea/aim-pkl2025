@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -29,14 +30,19 @@ class VarietasUnggulResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama_varietas')
-                ->required(),
-                FileUpload::make('gambar')
-                ->required()
-                ->directory('uploads/')
-                ->disk('public') ,
-                TextInput::make('informasi'),
-                //
+                grid::make(3)
+                ->schema([
+                    TextInput::make('nama_varietas')
+                    ->required()
+                    ->columnspan(1),
+                    FileUpload::make('gambar')
+                    ->required()
+                    ->columnspan(1)
+                    ->directory('uploads/')
+                    ->disk('public') ,
+                    Textarea::make('informasi')
+                    ->columnspan(2),
+                ])
             ]);
     }
 

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
@@ -31,17 +32,23 @@ class KunjunganResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama')
-                ->required(),
-                DatePicker::make('tanggal')
-                ->label('Tanggal')
-                ->required()
-                ->native(false)          // use Flatpickr instead of browser picker
-                ->withoutSeconds()       // hide seconds
-                ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y'), // Monday start,
-                TextInput::make('keterangan'),
-                //
+                grid::make(3)
+                ->schema([
+                    TextInput::make('nama')
+                    ->required()
+                    ->columnspan(1),
+                    DatePicker::make('tanggal')
+                    ->label('Tanggal')
+                    ->required()
+                    ->columnspan(1)
+                    ->native(false)          // use Flatpickr instead of browser picker
+                    ->withoutSeconds()       // hide seconds
+                    ->minutesStep(15)        // minute increments
+                    ->displayFormat('d F Y'), // Monday start,
+                    Textarea::make('keterangan')
+                    ->columnspan(2)
+                    ->autosize(),
+                ])
             ]);
     }
 

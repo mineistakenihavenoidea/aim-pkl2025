@@ -30,14 +30,18 @@ class LabUjiResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('judul')
-                ->required(),
-                FileUpload::make('gambar')
-                ->directory('uploads/labuji')
-                ->disk('public'),
-                RichEditor::make('deskripsi')
-                ->columnSpanFull(),
-                //
+                grid::make(3)
+                ->schema([
+                    TextInput::make('judul')
+                    ->required()
+                    ->columnspan(1),
+                    FileUpload::make('gambar')
+                    ->directory('uploads/labuji')
+                    ->disk('public')
+                    ->columnspan(1),
+                    RichEditor::make('deskripsi')
+                    ->columnSpanfull(),
+            ])
             ]);
     }
 

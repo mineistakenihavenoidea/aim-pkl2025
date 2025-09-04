@@ -29,13 +29,14 @@ class InfografisResource extends Resource
     {
         return $form
         ->schema([
-            Grid::make(2)
+            Grid::make(3)
             ->schema([
                 TextInput::make('judul')
-                ->required(),
-
+                ->required()
+                ->columnspan(2),
                 FileUpload::make('gambar')
                 ->multiple()
+                ->columnspan(2)
                 ->directory('uploads/infografis')
                 ->disk('public') // super important
                 ->saveRelationshipsUsing(function ($record, $state) {
@@ -47,7 +48,6 @@ class InfografisResource extends Resource
                     }
                 })
             ]),
-
         ]);
     }
 
