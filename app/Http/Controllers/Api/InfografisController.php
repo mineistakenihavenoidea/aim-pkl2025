@@ -14,15 +14,12 @@ class InfografisController extends Controller
     public function index()
     {
         //
+        return Infografis::latest()->pagination(10)->get();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -30,21 +27,14 @@ class InfografisController extends Controller
     public function show(string $id)
     {
         //
+        return$infografis;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

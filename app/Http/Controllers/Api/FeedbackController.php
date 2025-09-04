@@ -14,6 +14,7 @@ class FeedbackController extends Controller
     public function index()
     {
         //
+        return Feedback::latest()->pagination(10)->get();
     }
 
     /**
@@ -21,30 +22,26 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nama' => 'required|string|max:255',
+            'rating' => 'required|integer|min:1|max:5', // rating is a number, not a date
+            'feedback' => 'required|string',
+        ]);
+
+    return Feedback::create($data);
+
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
