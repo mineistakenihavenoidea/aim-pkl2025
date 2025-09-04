@@ -1,0 +1,66 @@
+<?php
+
+use App\Http\Controllers\Api\gendaController;
+use App\Http\Controllers\Api\BeritaController;
+use App\Http\Controllers\Api\BukuTamuController;
+use App\Http\Controllers\Api\FaqController;
+use App\Http\Controllers\Api\FeedbackController;
+use App\Http\Controllers\Api\FormPertanyaanController;
+use App\Http\Controllers\Api\GaleriKegiatanController;
+use App\Http\Controllers\Api\InfografisController;
+use App\Http\Controllers\Api\JabatanController;
+use App\Http\Controllers\Api\KerjasamaController;
+use App\Http\Controllers\Api\KunjunganController;
+use App\Http\Controllers\Api\LabUjiController;
+use App\Http\Controllers\Api\MagangController;
+use App\Http\Controllers\Api\MediaController;
+use App\Http\Controllers\Api\NarasumberController;
+use App\Http\Controllers\Api\PenyediaanBenihController;
+use App\Http\Controllers\Api\SambutanKepalaController;
+use App\Http\Controllers\Api\StrukturController;
+use App\Http\Controllers\Api\TeknologiBudidaya;
+use App\Http\Controllers\Api\TentangKamiController;
+use App\Http\Controllers\Api\VarietasUnggulController;
+
+Route::apiResource('agenda', AgendaController::class)
+    ->only(['index', 'show']);
+Route::apiResource('berita', BeritaController::class)
+    ->only(['index', 'show']);
+Route::apiResource('buku-tamu', BukuTamuController::class)
+    ->only(['index', 'store']);
+Route::apiResource('faq', FaqController::class)
+    ->only(['index', 'show']);
+Route::apiResource('feedback', FeedbackController::class)
+    ->only(['index', 'store']);
+Route::apiResource('form-pertanyaan', FormPertanyaanController::class)
+    ->only(['index', 'store']);
+Route::apiResource('galeri-kegiatan', GaleriKegiatanController::class)
+    ->only(['index', 'show']);
+Route::apiResource('infografis', InfografisController::class)
+    ->only(['index', 'show']);
+Route::apiResource('jabatan', JabatanController::class)
+    ->only(['index', 'show']);
+Route::apiResource('kerjasama', KerjasamaController::class)
+    ->only(['index', 'show']);
+Route::apiResource('kunjungan', KunjunganController::class)
+    ->only(['index', 'show']);
+Route::apiResource('lab-uji', LabUjiController::class)
+    ->only(['index', 'show']);
+Route::apiResource('magang', MagangController::class)
+    ->only(['index', 'show']);
+Route::apiResource('media', MediaController::class)
+    ->only(['index', 'show']);
+Route::apiResource('narasumber', NarasumberController::class)
+    ->only(['index', 'show']);
+Route::apiResource('penyediaan-benih', PenyediaanBenihController::class)
+    ->only(['index', 'show']);
+Route::apiResource('sambutan-kepala', SambutanKepalaController::class)
+    ->only(['index', 'show']);
+Route::apiResource('struktur', StrukturController::class)
+    ->only(['index', 'show']);
+Route::apiResource('teknologi-budidaya', TeknologiBudidaya::class)
+    ->only(['index', 'show']);
+Route::apiResource('tentang-kami', TentangKamiController::class)
+    ->only(['index', 'show']);
+Route::apiResource('varietas-unggul', VarietasUnggulController::class)
+    ->only(['index', 'show']);
