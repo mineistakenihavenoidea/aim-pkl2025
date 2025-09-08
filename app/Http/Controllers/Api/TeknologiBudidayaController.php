@@ -27,6 +27,7 @@ class TeknologiBudidayaController extends Controller
     public function show(string $id)
     {
         //
+        $teknologibudidaya = TeknologiBudidaya::findOrFail($id);
         return$teknologibudidaya;
     }
 

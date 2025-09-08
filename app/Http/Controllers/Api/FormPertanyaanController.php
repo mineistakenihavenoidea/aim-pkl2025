@@ -18,14 +18,7 @@ class FormPertanyaanController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->validate([
-            'nama' => 'required|string|max:255',
-            'kontak' => 'required|string',
-            'subjek' => 'required|string',
-            'pertanyaan' => 'required|string',
-        ]);
-
-    return Feedback::create($data);
+        
 
     }
 

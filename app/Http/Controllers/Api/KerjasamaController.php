@@ -14,7 +14,7 @@ class KerjasamaController extends Controller
     public function index()
     {
         //
-        return Kerjasama::latest()->pagination(10)->get();
+        return Kerjasama::latest()->paginate(10);
     }
 
     /**

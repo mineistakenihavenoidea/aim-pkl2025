@@ -27,6 +27,7 @@ class StrukturController extends Controller
     public function show(string $id)
     {
         //
+        $struktur = Struktur::findOrFail($id);
         return$struktur;
     }
 

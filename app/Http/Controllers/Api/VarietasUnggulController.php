@@ -27,6 +27,7 @@ class VarietasUnggulController extends Controller
     public function show(string $id)
     {
         //
+        $varietasunggul = VarietasUnggul::findOrFail($id);
         return$varietasunggul;
     }
 

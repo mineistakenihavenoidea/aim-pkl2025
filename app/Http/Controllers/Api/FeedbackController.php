@@ -14,7 +14,7 @@ class FeedbackController extends Controller
     public function index()
     {
         //
-        return Feedback::latest()->pagination(10)->get();
+        return Feedback::latest()->paginate(10);
     }
 
     /**

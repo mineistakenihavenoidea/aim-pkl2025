@@ -27,6 +27,7 @@ class PenyediaanBenihController extends Controller
     public function show(string $id)
     {
         //
+        $penyediaanbenih = PenyediaanBenih::findOrFail($id);
         return$penyediaanbenih;
     }
 

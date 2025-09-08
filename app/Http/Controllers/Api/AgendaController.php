@@ -11,7 +11,7 @@ class AgendaController extends Controller
     // GET /api/agendas
     public function index()
     {
-        return Agenda::latest()->paginate(10)->get();
+        return Agenda::latest()->paginate(10);
     }
 
     // GET /api/agendas/{id}

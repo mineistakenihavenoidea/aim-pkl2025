@@ -14,7 +14,7 @@ class KunjunganController extends Controller
     public function index()
     {
         //
-        return Kunjungan::latest()->pagination(10)->get();
+        return Kunjungan::latest()->paginate(10);
     }
 
     /**

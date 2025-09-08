@@ -14,7 +14,7 @@ class InfografisController extends Controller
     public function index()
     {
         //
-        return Infografis::latest()->pagination(10)->get();
+        return Infografis::latest()->paginate(10);
     }
 
     /**
@@ -27,6 +27,7 @@ class InfografisController extends Controller
     public function show(string $id)
     {
         //
+        $infografis = Infografis::findOrFail($id);
         return$infografis;
     }
 

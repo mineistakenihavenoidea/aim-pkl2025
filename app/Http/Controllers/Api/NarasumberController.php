@@ -27,6 +27,7 @@ class NarasumberController extends Controller
     public function show(string $id)
     {
         //
+        $narasumber = Narasumber::findOrFail($id);
         return$narasumber;
     }
 

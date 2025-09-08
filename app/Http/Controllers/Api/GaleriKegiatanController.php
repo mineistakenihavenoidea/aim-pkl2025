@@ -14,7 +14,7 @@ class GaleriKegiatanController extends Controller
     public function index()
     {
         //
-        return GaleriKegiatan::latest()->pagination(10)->get();
+        return GaleriKegiatan::latest()->paginate(10);
     }
 
     /**
@@ -27,6 +27,7 @@ class GaleriKegiatanController extends Controller
     public function show(string $id)
     {
         //
+        $galerikegiatan = GaleriKegiatan::findOrFail($id);
         return$galerikegiatan;
     }
 

@@ -14,7 +14,7 @@ class LabUjiController extends Controller
     public function index()
     {
         //
-        return labUji::get();
+        return LabUji::get();
     }
 
     /**
@@ -27,6 +27,7 @@ class LabUjiController extends Controller
     public function show(string $id)
     {
         //
+        $labuji = LabUji::findOrFail($id);
         return$labuji;
     }
 

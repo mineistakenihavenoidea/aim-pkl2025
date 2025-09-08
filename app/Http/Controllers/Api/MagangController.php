@@ -14,7 +14,7 @@ class MagangController extends Controller
     public function index()
     {
         //
-        return Magang::latest()->pagination(10)->get();
+        return Magang::latest()->paginate(10);
     }
 
     /**

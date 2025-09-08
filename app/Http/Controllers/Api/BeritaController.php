@@ -14,7 +14,7 @@ class BeritaController extends Controller
     public function index()
     {
         //
-        return Berita::latest()->paginate(3)->get();
+        return Berita::latest()->paginate(3);
     }
 
     /**
@@ -27,6 +27,7 @@ class BeritaController extends Controller
     public function show(string $id)
     {
         //
+    $berita = Berita::findOrFail($id);
         return $berita;
     }
 

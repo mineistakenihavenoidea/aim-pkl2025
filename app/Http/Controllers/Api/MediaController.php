@@ -27,6 +27,8 @@ class MediaController extends Controller
     public function show(string $id)
     {
         //
+
+        $media = Media::findOrFail($id);
         return$media;
     }
 

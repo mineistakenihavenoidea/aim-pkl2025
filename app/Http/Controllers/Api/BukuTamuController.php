@@ -11,6 +11,11 @@ class BukuTamuController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function index()
+    {
+        //
+        return BukuTamu::latest()->paginate(3);
+    }
 
     /**
      * Store a newly created resource in storage.

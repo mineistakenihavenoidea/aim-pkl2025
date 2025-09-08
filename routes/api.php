@@ -24,31 +24,31 @@ use App\Http\Controllers\Api\TentangKamiController;
 use App\Http\Controllers\Api\VarietasUnggulController;
 
 Route::apiResource('agenda', AgendaController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('berita', BeritaController::class)
         ->only(['index', 'show']);
 Route::apiResource('buku-tamu', BukuTamuController::class)
         ->only(['index', 'store']);
 Route::apiResource('faq', FaqController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('feedback', FeedbackController::class)
         ->only(['index', 'store']);
 Route::apiResource('form-pertanyaan', FormPertanyaanController::class)
-        ->only(['index', 'store']);
+        ->only(['store']);
 Route::apiResource('galeri-kegiatan', GaleriKegiatanController::class)
         ->only(['index', 'show']);
 Route::apiResource('infografis', InfografisController::class)
         ->only(['index', 'show']);
 Route::apiResource('jabatan', JabatanController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('kerjasama', KerjasamaController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('kunjungan', KunjunganController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('lab-uji', LabUjiController::class) 
         ->only(['index', 'show']);
 Route::apiResource('magang', MagangController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('media', MediaController::class)
         ->only(['index', 'show']);
 Route::apiResource('narasumber', NarasumberController::class)
@@ -56,12 +56,12 @@ Route::apiResource('narasumber', NarasumberController::class)
 Route::apiResource('penyediaan-benih', PenyediaanBenihController::class)
         ->only(['index', 'show']);
 Route::apiResource('sambutan-kepala', SambutanKepalaController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('struktur', StrukturController::class)
         ->only(['index', 'show']);
 Route::apiResource('teknologi-budidaya', TeknologiBudidayaController::class)
         ->only(['index', 'show']);
 Route::apiResource('tentang-kami', TentangKamiController::class)
-        ->only(['index', 'show']);
+        ->only(['index']);
 Route::apiResource('varietas-unggul', VarietasUnggulController::class)
         ->only(['index', 'show']);
