@@ -16,6 +16,14 @@ class Struktur extends Model
         return $this->belongsTo(Jabatan::class, 'id');
     }
 
+    public function getCoverPathAttribute(): ?string
+    {
+        $m = $this->cover()->first() ?: $this->media()->first(); // fallback to first media
+        return $m?->file_path
+            ? asset('storage/' . $m->file_path) // turn into full URL
+            : null;
+    }
+
 
 
 }

@@ -8,5 +8,14 @@ class LabUji extends Model
 {
     //
     protected $table = 'lab_uji';
+    
     protected $fillable = ['judul','gambar','deskripsi'];
+
+    public function getCoverPathAttribute(): ?string
+    {
+        $m = $this->cover()->first() ?: $this->media()->first(); // fallback to first media
+        return $m?->file_path
+            ? asset('storage/' . $m->file_path) // turn into full URL
+            : null;
+    }
 }
