@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sambutan_kepala', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('agendas', function (Blueprint $table) {
+            $table->foreign(['user_id'], 'agenda_user_id_foreign')->references(['id'])->on('users')->onUpdate('no action')->onDelete('cascade');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sambutan_kepala');
+        Schema::table('agendas', function (Blueprint $table) {
+            $table->dropForeign('agenda_user_id_foreign');
+        });
     }
 };

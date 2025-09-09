@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tentang_kami', function (Blueprint $table) {
-            $table->id();
+        Schema::create('kegiatans', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('judul');
+            $table->text('informasi');
+            $table->unsignedBigInteger('user_id')->index('kegiatan_user_id_foreign');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tentang_kami');
+        Schema::dropIfExists('kegiatans');
     }
 };

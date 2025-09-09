@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('struktur', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('profil', function (Blueprint $table) {
+            $table->integer('id', true);
+            $table->longText('sambutan')->nullable();
+            $table->string('image')->nullable();
+            $table->string('tentang_kami')->nullable();
+            $table->timestamp('created_at');
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('struktur');
+        Schema::dropIfExists('profil');
     }
 };

@@ -9,24 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void{
+    public function up(): void
+    {
         Schema::create('beritas', function (Blueprint $table) {
-            $table->id();
-            $table->string('judul');         // News title
-            $table->text('konten');         // News content
-            $table->foreignId('user_id')     // Who posted it
-                  ->constrained()
-                  ->onDelete('cascade');
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->string('judul');
+            $table->text('konten');
+            $table->unsignedBigInteger('user_id')->index('beritas_user_id_foreign');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('berita');
+        Schema::dropIfExists('beritas');
     }
 };

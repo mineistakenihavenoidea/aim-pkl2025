@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('form_pertanyaan', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->longtext('pertanyaan');
+        Schema::create('media', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('file_path');
+            $table->string('media_type')->nullable();
+            $table->string('mediable_type');
+            $table->unsignedBigInteger('mediable_id');
             $table->timestamps();
+
+            $table->index(['mediable_type', 'mediable_id']);
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('form_pertanyaan');
+        Schema::dropIfExists('media');
     }
 };

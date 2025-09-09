@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('penyediaan_benih', function (Blueprint $table) {
-            $table->id();
+        Schema::create('infografis', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('judul');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penyediaan_benih');
+        Schema::dropIfExists('infografis');
     }
 };

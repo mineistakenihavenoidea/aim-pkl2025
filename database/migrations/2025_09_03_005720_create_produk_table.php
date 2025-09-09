@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kunjungan', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('produk', function (Blueprint $table) {
+            $table->integer('id', true);
+            $table->string('nama_varietas')->nullable();
+            $table->string('judul')->nullable();
+            $table->longText('isi')->nullable();
+            $table->timestamp('created_at');
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kunjungan');
+        Schema::dropIfExists('produk');
     }
 };

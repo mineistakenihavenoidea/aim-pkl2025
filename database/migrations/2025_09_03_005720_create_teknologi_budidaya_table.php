@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('teknologi_budidaya', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_tanaman');
+            $table->longText('budidaya');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('teknologi_budidaya');
     }
 };

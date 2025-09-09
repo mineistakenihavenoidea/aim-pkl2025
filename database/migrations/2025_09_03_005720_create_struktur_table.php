@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedTinyInteger('rating'); // 1–5 scale
+        Schema::create('struktur', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('nama');
-            $table->longText('feedback');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('struktur');
     }
 };
