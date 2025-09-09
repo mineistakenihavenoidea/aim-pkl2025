@@ -26,7 +26,9 @@ class Berita extends Model
     public function getCoverPathAttribute(): ?string
     {
         $m = $this->cover()->first() ?: $this->media()->first(); // fallback to first media
-        return $m?->file_path; // e.g. 'uploads/berita/foo.jpg'
+        return $m?->file_path
+            ? asset('storage/' . $m->file_path) // turn into full URL
+            : null;
     }
 
     protected $fillable = [
@@ -45,6 +47,6 @@ class Berita extends Model
         });
     }
 
-protected $appends = ['cover_path'];
+    protected $appends = ['cover_path'];
 
 }
