@@ -49,9 +49,13 @@ class LabUjiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul'),
+                TextColumn::make('judul')
+                ->sortable()
+                ->searchable(),
                 ImageColumn::make('gambar'),
                 TextColumn::make('deskripsi')
+                ->sortable()
+                ->searchable()
                 ->html()
                 ->wrap()
                 ->limit(100),

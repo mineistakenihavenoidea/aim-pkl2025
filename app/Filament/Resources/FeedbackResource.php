@@ -50,12 +50,14 @@ class FeedbackResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 RatingColumn::make('rating')
                 ->stars(5)
                 ->sortable(),
                 TextColumn::make('feedback')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

@@ -47,13 +47,14 @@ class SambutanKepalaResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('konten')
                 ->html()
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 ImageColumn::make('gambar')
-                ->size(100)
-                ->sortable(),
+                ->size(100),
                 //
             ])
             ->filters([

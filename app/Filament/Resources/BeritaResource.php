@@ -73,8 +73,7 @@ class BeritaResource extends Resource
                 ->label('Cover')
                 ->disk('public')   // uses storage/app/public
                 ->square()
-                ->size(100)
-                ->sortable(),
+                ->size(100),
         ])
             ->filters([
                 //

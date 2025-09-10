@@ -51,13 +51,17 @@ class FormPertanyaanResource extends Resource
         return $table
             ->columns([
             TextColumn::make('nama')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             TextColumn::make('kontak')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             TextColumn::make('pertanyaan')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             TextColumn::make('subjek')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

@@ -31,9 +31,12 @@ class NarasumberResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nama')
-                ->required(),
+                ->sortable()
+                ->searchable(),
                 TextInput::make('asal')
-                ->required(),
+                ->sortable()
+                ->searchable()
+                ->label('Info'),
                 //
             ]);
     }

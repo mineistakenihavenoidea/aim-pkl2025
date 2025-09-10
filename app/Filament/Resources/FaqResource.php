@@ -47,10 +47,12 @@ class FaqResource extends Resource
         return $table
             ->columns([
             TextColumn::make('pertanyaan')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             TextColumn::make('jawaban')
                 ->limit(255)
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

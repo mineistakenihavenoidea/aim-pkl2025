@@ -48,8 +48,12 @@ class TeknologiBudidayaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_tanaman'),
+                TextColumn::make('nama_tanaman')
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('budidaya')
+                ->sortable()
+                ->searchable()
                 ->label('Teknologi Budidaya'),
                 //
             ])

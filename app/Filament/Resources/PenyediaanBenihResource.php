@@ -52,11 +52,14 @@ class PenyediaanBenihResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('stok')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('keterangan')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

@@ -51,11 +51,12 @@ class VarietasUnggulResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama_varietas')
-                ->sortable(),
-                ImageColumn::make('gambar')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
+                ImageColumn::make('gambar'),
                 TextColumn::make('informasi')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

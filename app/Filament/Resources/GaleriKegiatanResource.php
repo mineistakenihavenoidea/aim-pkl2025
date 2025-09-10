@@ -57,8 +57,14 @@ class GaleriKegiatanResource extends Resource
     {
     return $table
         ->columns([
-            TextColumn::make('judul')->searchable(),
-            TextColumn::make('info')->limit(120)->html(),
+            TextColumn::make('judul')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('info')
+                ->sortable()
+                ->searchable()
+                ->limit(120)
+                ->html(),
 
             // Pulls from the accessor above
             ImageColumn::make('cover_path')

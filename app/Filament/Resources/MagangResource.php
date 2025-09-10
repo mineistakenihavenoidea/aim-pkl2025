@@ -62,15 +62,19 @@ class MagangResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('lembaga')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('jumlah_orang')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('mulai')
                 ->date('d F Y')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('selesai')
                 ->date('d F Y')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

@@ -58,10 +58,9 @@ class StrukturResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                ->sortable(),
-                ImageColumn::make('gambar')
-                ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
+                ImageColumn::make('gambar'),
                 TextColumn::make('category.jabatan')
                 ->label('jabatan')
                 ->sortable()
