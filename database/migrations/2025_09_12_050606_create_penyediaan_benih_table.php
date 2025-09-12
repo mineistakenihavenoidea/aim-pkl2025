@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('penyediaan_benih', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
-            $table->integer('stok');
-            $table->string('keterangan')->nullable();
+            $table->longText('konten')->nullable();
             $table->timestamps();
         });
     }

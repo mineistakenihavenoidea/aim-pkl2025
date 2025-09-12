@@ -6,14 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class BukuTamu extends Model
 {
-    //
     protected $table = 'buku_tamu';
 
-        protected $fillable = [
-        'tanggal',
+    protected $fillable = [
+        'pekerjaan',
         'nama',
-        'keperluan',
-        'user_id',
+        'nomor',
+        'created_at',
+        'instansi',
+        'layanan',
+        'pegawai_id', 
+        'tujuan',
+        'topik',
     ];
 
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class, 'pegawai_id');
+    }
+
 }
+

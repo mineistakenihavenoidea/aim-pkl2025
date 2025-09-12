@@ -11,6 +11,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -35,19 +36,40 @@ class BukuTamuResource extends Resource
                 TextInput::make('nama')
                 ->required()
                 ->columnspan(1),
-                DatePicker::make('tanggal')
-                ->label('Tanggal')
+                Textinput::make('nomor')
+                ->numeric()
+                ->columnspan(1),
+                select::make('pekerjaan')
+                ->options([
+                'Petani' => 'Petani',
+                'Peneliti' => 'Peneliti',
+                'Penyuluh' => 'Penyuluh',
+                'ASN' => 'ASN',
+                'Dosen' => 'Dosen',
+                'Guru' => 'Guru',
+                'Mahasiswa' => 'Mahasiswa',
+                'Pelajar' => 'Pelajar',
+                'Swasta' => 'Swasta',
+                'Umum' => 'Umum',
+                ]),
+                textinput::make('instansi'),
+                select::make('layanan')
+                ->options([
+                'Konsultasi' => 'Konsultasi',
+                'Penyediaan Benih Sumber' => 'Peneliti',
+                'Laboratorium Pengujian' => 'Laboratorium Pengujian',
+                'Perpustakaan' => 'Perpustakaan',
+                'Lain-lain' => 'Lain-lain',
+                ]),
+                Select::make('pegawai_id')
+                ->relationship('pegawai', 'nama')
+                ->label('Pegawai')
+                ->preload()
                 ->required()
-                ->columnspan(1)
-                ->native(false)          // use Flatpickr instead of browser picker
-                ->withoutSeconds()       // hide seconds
-                ->minutesStep(15)        // minute increments
-                ->displayFormat('d F Y'), // Monday start,
-                Textarea::make('keperluan')
-                ->rows(5)
-                ->required()
-                ->autosize()
-                ->columnspan(2),
+                ->columnSpan(1),
+                textinput::make('tujuan'),
+                textinput::make('topik'),
+
                 //
             ])
         ]);
@@ -60,15 +82,33 @@ class BukuTamuResource extends Resource
                 TextColumn::make('nama')
                 ->sortable()
                 ->searchable(),
-                TextColumn::make('keperluan')
-                ->limit(50)
+                TextColumn::make('nomor')
                 ->sortable()
                 ->searchable(),
-                TextColumn::make('tanggal')
+                textcolumn::make('pekerjaan')
+                ->sortable()
+                ->searchable(),
+                textcolumn::make('instansi')
+                ->sortable()
+                ->searchable(),
+                textcolumn::make('layanan')
+                ->sortable()
+                ->searchable(),
+                TextColumn::make('pegawai.nama')
+                ->label('Pegawai')
+                ->sortable()
+                ->searchable(),
+                textcolumn::make('tujuan')
+                ->sortable()
+                ->searchable(),
+                textcolumn::make('topik')
+                ->sortable()
+                ->searchable(),
+                TextColumn::make('created_at')
+                ->label('tanggal')
                 ->date()
                 ->sortable()
                 ->searchable(),
-
                 //
             ])
             ->filters([

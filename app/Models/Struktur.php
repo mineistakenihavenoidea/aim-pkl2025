@@ -9,11 +9,11 @@ class Struktur extends Model
 {
     //
     protected $table = 'struktur';
-    protected $fillable = ['nama','gambar'];
+    protected $fillable = ['nama','gambar','id_jabatan'];
 
-    public function category()
+    public function jabatan()
     {
-        return $this->belongsTo(Jabatan::class, 'id');
+        return $this->belongsTo(Jabatan::class, 'id_jabatan');
     }
 
     public function getCoverPathAttribute(): ?string
@@ -24,6 +24,13 @@ class Struktur extends Model
             : null;
     }
 
+    public function getJabatanTitleAttribute()
+    {
+        return $this->jabatan?->jabatan; // safe navigation
+    }
 
+    protected $appends = ['jabatan_title'];
+
+    protected $hidden = ['jabatan'];
 
 }

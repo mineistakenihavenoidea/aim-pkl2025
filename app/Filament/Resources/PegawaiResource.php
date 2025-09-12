@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\StrukturResource\Pages;
-use App\Filament\Resources\StrukturResource\RelationManagers;
-use App\Models\Struktur;
+use App\Filament\Resources\PegawaiResource\Pages;
+use App\Filament\Resources\PegawaiResource\RelationManagers;
+use App\Models\Pegawai;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,17 +12,15 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Grid;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 
-class StrukturResource extends Resource
+class PegawaiResource extends Resource
 {
-    protected static ?string $model = Struktur::class;
+    protected static ?string $model = Pegawai::class;
 
     protected static ?string $navigationGroup = 'Profil';
 
@@ -30,26 +28,16 @@ class StrukturResource extends Resource
     {
         return $form
             ->schema([
-                grid::make(2)
+                grid::make(3)
                 ->schema([
-                    TextInput::make('nama')
-                    ->required()
-                    ->columnspan(1),
-                    FileUpload::make('gambar')
-                    ->directory('uploads/struktur')
-                    ->disk('public')
-                    ->required()
-                    ->columnspan(1),
-                ]),
-                grid::make(2)
-                ->schema([
-                    Select::make('id_jabatan')
+                    TextInput::make('nama'),
+                    select::make('id_jabatan')
                     ->relationship('jabatan', 'jabatan')
-                    ->label('Jabatan')
                     ->preload()
                     ->required()
-                    ->columnspan(1),
-                ]),
+                    ->columnSpan(1),
+                ])
+                //
             ]);
     }
 
@@ -58,11 +46,11 @@ class StrukturResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
+                ->label('Nama')
                 ->sortable()
                 ->searchable(),
-                ImageColumn::make('gambar'),
                 TextColumn::make('jabatan.jabatan')
-                ->label('jabatan')
+                ->label('Jabatan')
                 ->sortable()
                 ->searchable(),
                 //
@@ -71,7 +59,6 @@ class StrukturResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                 ->requiresConfirmation()
                 ->modalHeading('Hapus Data')
@@ -80,7 +67,7 @@ class StrukturResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -95,19 +82,19 @@ class StrukturResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListStrukturs::route('/'),
-            'create' => Pages\CreateStruktur::route('/create'),
-            'edit' => Pages\EditStruktur::route('/{record}/edit'),
+            'index' => Pages\ListPegawais::route('/'),
+            'create' => Pages\CreatePegawai::route('/create'),
+            'edit' => Pages\EditPegawai::route('/{record}/edit'),
         ];
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Struktur';
+        return 'Pegawai';
     }
 
     public static function getModelLabel(): string
     {
-        return 'Struktur';
+        return 'Pegawai';
     }
 }

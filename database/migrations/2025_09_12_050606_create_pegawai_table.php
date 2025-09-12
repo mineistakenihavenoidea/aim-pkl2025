@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('struktur', function (Blueprint $table) {
+        Schema::create('pegawai', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->string('gambar');
+            $table->integer('id_jabatan')->index('jabatan_foreign');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('struktur');
+        Schema::dropIfExists('pegawai');
     }
 };

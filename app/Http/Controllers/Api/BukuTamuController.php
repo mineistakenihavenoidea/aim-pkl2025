@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\BukuTamu;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BukuTamuController extends Controller
 {
@@ -22,14 +23,24 @@ class BukuTamuController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $data = $request->validate([
-            'nama' => 'required|string|max:255',
-            'tanggal' => 'required|date',
-            'keperluan' => 'required|string',
+            'nama'      => 'required|string|max:255',
+            'nomor'     => 'required|numeric',
+            'pekerjaan' => 'nullable|string',
+            'instansi'  => 'nullable|string|max:255',
+            'layanan'   => 'nullable|string',
+            'pegawai'   => 'required|exists:pegawai,id',
+            'tujuan'    => 'nullable|string|max:255',
+            'topik'     => 'nullable|string|max:255',
         ]);
 
-        return BukuTamu::create($data);
+        // Automatically set today's date
+        $data['created_at'] = Carbon::now();
+
+        // Save record
+        $model = BukuTamu::create($data);
+
+        return response()->json($model, 201);
     }
 
     /**
