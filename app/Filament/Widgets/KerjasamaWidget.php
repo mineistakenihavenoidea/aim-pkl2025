@@ -15,32 +15,37 @@ class KerjasamaWidget extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
-        return Kerjasama::query()->latest();
+        return Kerjasama::query()->latest()->take(5);
     }
 
     protected function getTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('nama')
-            ->label('Nama')
-            ->wrap()
-            ->limit(25), // forces wrapping instead of single-line, ->limit(30) // optional, limits characters,
+                ->sortable()
+                ->label('Nama')
+                ->wrap()
+                ->limit(25), // forces wrapping instead of single-line, ->limit(30) // optional, limits characters,
             Tables\Columns\TextColumn::make('lembaga')
-            ->label('Lembaga')
-            ->wrap()
-            ->limit(25),
+                ->sortable()
+                ->label('Lembaga')
+                ->wrap()
+                ->limit(25),
             Tables\Columns\TextColumn::make('jenis')
-            ->label('Jenis')
-            ->wrap()
-            ->limit(25),
+                ->sortable()
+                ->label('Jenis')
+                ->wrap()
+                ->limit(25),
             Tables\Columns\TextColumn::make('mulai')
-            ->date('d F Y')
-            ->wrap()
-            ->limit(25),
+                ->sortable()
+                ->date('d F Y')
+                ->wrap()
+                ->limit(25),
             Tables\Columns\TextColumn::make('selesai')
-            ->date('d F Y')
-            ->wrap()
-            ->limit(25),
+                ->sortable()
+                ->date('d F Y')
+                ->wrap()
+                ->limit(25),
         ];
     }
 

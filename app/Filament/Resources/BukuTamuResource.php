@@ -69,7 +69,7 @@ class BukuTamuResource extends Resource
                 ->columnSpan(1),
                 textinput::make('tujuan'),
                 textinput::make('topik'),
-                
+
 
                 //
             ])
@@ -107,7 +107,7 @@ class BukuTamuResource extends Resource
                 ->searchable(),
                 TextColumn::make('created_at')
                 ->label('tanggal')
-                ->date()
+                ->dateTime('d F Y')
                 ->sortable()
                 ->searchable(),
                 //

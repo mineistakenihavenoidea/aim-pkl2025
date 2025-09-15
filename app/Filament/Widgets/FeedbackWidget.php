@@ -21,13 +21,14 @@ class FeedbackWidget extends BaseWidget
     {
         return [
             Tables\Columns\TextColumn::make('nama')
+                ->sortable()
                 ->label('Nama'),
-
             Tables\Columns\TextColumn::make('rating')
+                ->sortable()
                 ->label('Rating')
                 ->formatStateUsing(fn ($state) => str_repeat('⭐', $state)),
-
             Tables\Columns\TextColumn::make('feedback')
+                ->sortable()
                 ->label('Feedback')
                 ->wrap(),
         ];

@@ -14,25 +14,40 @@ class BukuTamuWidget extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
-        return BukuTamu::query()->latest();
+        return BukuTamu::query()->latest()->take(5);
     }
 
     protected function getTableColumns(): array
     {
         return [
             TextColumn::make('nama')
+                ->sortable()
                 ->label('Nama'),
-            TextColumn::make('nomor'),
-            TextColumn::make('pekerjaan'),
-            TextColumn::make('instansi'),
-            TextColumn::make('layanan'),
+            TextColumn::make('nomor')
+                ->label('Nomor')
+                ->sortable(),
+            TextColumn::make('pekerjaan')
+                ->label('Pekerjaan')
+                ->sortable(),
+            TextColumn::make('instansi')
+                ->label('Instansi')
+                ->sortable(),
+            TextColumn::make('layanan')
+                ->label('Layanan')
+                ->sortable(),
             TextColumn::make('pegawai.nama')
                 ->label('Pegawai')
-                ->sortable()
-                ->searchable(),
-            TextColumn::make('tujuan'),
-            TextColumn::make('topik'),
-            TextColumn::make('created_at'),
+                ->sortable(),
+            TextColumn::make('tujuan')
+                ->label('Tujuan')
+                ->sortable(),
+            TextColumn::make('topik')
+                ->label('Topik')
+                ->sortable(),
+            TextColumn::make('created_at')
+                ->label('Tanggal')
+                ->dateTime('d F Y')
+                ->sortable(),
         ];
     }
 
