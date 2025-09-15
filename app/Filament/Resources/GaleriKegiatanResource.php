@@ -37,7 +37,7 @@ class GaleriKegiatanResource extends Resource
                 FileUpload::make('gambar')
                 ->multiple()
                 ->columnspan(1)
-                ->directory('uploads/galeri kegiatan')
+                ->directory('uploads/galeri_kegiatan')
                 ->disk('public') // super important
                 ->saveRelationshipsUsing(function ($record, $state) {
                     foreach ($state as $file) {
