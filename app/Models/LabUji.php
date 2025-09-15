@@ -9,7 +9,7 @@ class LabUji extends Model
     //
     protected $table = 'lab_uji';
     
-    protected $fillable = ['judul','gambar','deskripsi'];
+    protected $fillable = ['konten'];
 
     public function getCoverPathAttribute(): ?string
     {

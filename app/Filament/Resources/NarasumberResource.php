@@ -30,12 +30,8 @@ class NarasumberResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama')
-                ->sortable()
-                ->searchable(),
+                TextInput::make('nama'),
                 TextInput::make('asal')
-                ->sortable()
-                ->searchable()
                 ->label('Info'),
                 //
             ]);
@@ -46,9 +42,11 @@ class NarasumberResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('asal')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

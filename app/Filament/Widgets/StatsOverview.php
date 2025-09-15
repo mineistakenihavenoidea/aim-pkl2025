@@ -22,7 +22,7 @@ class StatsOverview extends BaseWidget
         $today = Carbon::today();
 
         return [
-            Card::make('Tamu', BukuTamu::whereDate('tanggal', '=', $today)
+            Card::make('Tamu', BukuTamu::whereDate('created_at', '=', $today)
                 ->count())
                 ->description('Tamu hari ini')
                 ->icon('heroicon-o-users')

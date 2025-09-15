@@ -32,14 +32,7 @@ class LabUjiResource extends Resource
             ->schema([
                 grid::make(3)
                 ->schema([
-                    TextInput::make('judul')
-                    ->required()
-                    ->columnspan(1),
-                    FileUpload::make('gambar')
-                    ->directory('uploads/labuji')
-                    ->disk('public')
-                    ->columnspan(1),
-                    RichEditor::make('deskripsi')
+                    RichEditor::make('konten')
                     ->columnSpanfull(),
             ])
             ]);
@@ -49,16 +42,12 @@ class LabUjiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul')
-                ->sortable()
-                ->searchable(),
-                ImageColumn::make('gambar'),
-                TextColumn::make('deskripsi')
+                TextColumn::make('konten')
                 ->sortable()
                 ->searchable()
                 ->html()
                 ->wrap()
-                ->limit(100),
+                ->limit(250),
                 //
             ])
             ->filters([

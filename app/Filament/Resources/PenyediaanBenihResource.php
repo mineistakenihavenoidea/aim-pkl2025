@@ -33,16 +33,9 @@ class PenyediaanBenihResource extends Resource
             ->schema([
                 grid::make(3)
                 ->schema([
-                    TextInput::make('nama')
+                    Richeditor::make('konten')
                     ->required()
-                    ->columnspan(1),
-                    TextInput::make('stok')
-                    ->required()
-                    ->numeric()
-                    ->columnspan(1),
-                    Textarea::make('keterangan')
-                    ->autosize()
-                    ->columnspan(2),
+                    ->columnspanfull(),
                 ])
             ]);
     }
@@ -51,15 +44,10 @@ class PenyediaanBenihResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama')
+                TextColumn::make('konten')
                 ->sortable()
-                ->searchable(),
-                TextColumn::make('stok')
-                ->sortable()
-                ->searchable(),
-                TextColumn::make('keterangan')
-                ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->html(),
                 //
             ])
             ->filters([

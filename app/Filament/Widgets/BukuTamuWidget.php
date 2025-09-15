@@ -6,6 +6,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables;
 use App\Models\BukuTamu;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Columns\TextColumn;
 
 class BukuTamuWidget extends BaseWidget
 {
@@ -19,9 +20,19 @@ class BukuTamuWidget extends BaseWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('nama')->label('Nama'),
-            Tables\Columns\TextColumn::make('keperluan')->label('Keperluan'),
-            Tables\Columns\TextColumn::make('tanggal')->date('d M Y'),
+            TextColumn::make('nama')
+                ->label('Nama'),
+            TextColumn::make('nomor'),
+            TextColumn::make('pekerjaan'),
+            TextColumn::make('instansi'),
+            TextColumn::make('layanan'),
+            TextColumn::make('pegawai.nama')
+                ->label('Pegawai')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('tujuan'),
+            TextColumn::make('topik'),
+            TextColumn::make('created_at'),
         ];
     }
 
