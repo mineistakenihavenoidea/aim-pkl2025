@@ -262,7 +262,6 @@
                 'kerjasama': { url: 'kerjasama', contentId: 'kerjasama', type: 'table' }
             };
 
-
             const fetchAndDisplayContent = async (targetId) => {
                 const config = endpointMap[targetId];
                 if (!config) return;
