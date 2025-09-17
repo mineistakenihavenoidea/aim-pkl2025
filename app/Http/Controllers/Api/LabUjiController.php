@@ -29,6 +29,7 @@ class LabUjiController extends Controller
         //
         $labuji = LabUji::findOrFail($id);
         return$labuji;
+        
     }
 
     /**
