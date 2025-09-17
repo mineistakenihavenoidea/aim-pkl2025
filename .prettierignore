@@ -1,2 +1,6 @@
 resources/js/components/ui/*
+<<<<<<< HEAD
+=======
+resources/js/ziggy.js
+>>>>>>> 5738fdaf22d3afe1fd4bb0dad6a0e8dab20995f1
 resources/views/mail/*

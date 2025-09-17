@@ -4,9 +4,12 @@
 /public/build
 /public/hot
 /public/storage
+<<<<<<< HEAD
 /resources/js/actions
 /resources/js/routes
 /resources/js/wayfinder
+=======
+>>>>>>> 5738fdaf22d3afe1fd4bb0dad6a0e8dab20995f1
 /storage/*.key
 /storage/pail
 /vendor

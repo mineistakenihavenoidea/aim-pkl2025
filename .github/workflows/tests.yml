@@ -34,12 +34,21 @@ jobs:
       - name: Install Node Dependencies
         run: npm ci
 
+<<<<<<< HEAD
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Build Assets
         run: npm run build
 
+=======
+      - name: Build Assets
+        run: npm run build
+
+      - name: Install Dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+>>>>>>> 5738fdaf22d3afe1fd4bb0dad6a0e8dab20995f1
       - name: Copy Environment File
         run: cp .env.example .env
 
