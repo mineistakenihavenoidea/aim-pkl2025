@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\MagangController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\Api\NarasumberController;
 use App\Http\Controllers\Api\PenyediaanBenihController;
+use App\Http\Controllers\Api\Pegawai;
 use App\Http\Controllers\Api\SambutanKepalaController;
 use App\Http\Controllers\Api\StrukturController;
 use App\Http\Controllers\Api\TeknologiBudidayaController;
@@ -54,6 +55,8 @@ Route::apiResource('media', MediaController::class)
 Route::apiResource('narasumber', NarasumberController::class)
         ->only(['index', 'show']);
 Route::apiResource('penyediaan-benih', PenyediaanBenihController::class)
+        ->only(['index', 'show']);
+Route::apiResource('pegawai', PenyediaanBenihController::class)
         ->only(['index', 'show']);
 Route::apiResource('sambutan-kepala', SambutanKepalaController::class)
         ->only(['index']);

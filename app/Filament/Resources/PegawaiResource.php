@@ -34,7 +34,6 @@ class PegawaiResource extends Resource
                     select::make('id_jabatan')
                     ->relationship('jabatan', 'jabatan')
                     ->preload()
-                    ->required()
                     ->columnSpan(1),
                 ])
                 //

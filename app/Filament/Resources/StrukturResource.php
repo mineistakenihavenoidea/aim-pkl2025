@@ -61,7 +61,7 @@ class StrukturResource extends Resource
                 ->sortable()
                 ->searchable(),
                 ImageColumn::make('gambar'),
-                TextColumn::make('jabatan.jabatan')
+                TextColumn::make('jabatan.kode')->label('Kode')
                 ->label('jabatan')
                 ->sortable()
                 ->searchable(),
