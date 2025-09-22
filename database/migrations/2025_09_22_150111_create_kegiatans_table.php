@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->text('informasi');
-            $table->unsignedBigInteger('user_id')->index('kegiatan_user_id_foreign');
+            $table->unsignedBigInteger('user_id')->nullable()->index('kegiatan_user_id_foreign');
             $table->timestamps();
         });
     }

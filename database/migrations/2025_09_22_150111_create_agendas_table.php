@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('beritas', function (Blueprint $table) {
+        Schema::create('agendas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul');
-            $table->text('konten');
-            $table->unsignedBigInteger('user_id')->index('beritas_user_id_foreign');
+            $table->string('nama_agenda');
+            $table->text('keterangan')->nullable();
+            $table->dateTime('tanggal');
+            $table->unsignedBigInteger('user_id')->nullable()->index('agenda_user_id_foreign');
+            $table->string('lokasi');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('agendas');
     }
 };
