@@ -13,7 +13,7 @@ class Jabatan extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'id');
+        return $this->hasMany(Post::class, 'kode');
     }
 
     protected static function booted()

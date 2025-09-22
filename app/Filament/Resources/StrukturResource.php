@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\StrukturResource\Pages;
 use App\Filament\Resources\StrukturResource\RelationManagers;
 use App\Models\Struktur;
+use App\Models\Jabatan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -43,12 +44,10 @@ class StrukturResource extends Resource
                 ]),
                 grid::make(2)
                 ->schema([
-                    Select::make('id_jabatan')
-                    ->relationship('jabatan', 'jabatan')
+                    Select::make('jabatan')
+                    ->options(Jabatan::pluck('jabatan', 'jabatan'))
                     ->label('Jabatan')
-                    ->preload()
                     ->required()
-                    ->columnspan(1),
                 ]),
             ]);
     }
@@ -61,8 +60,8 @@ class StrukturResource extends Resource
                 ->sortable()
                 ->searchable(),
                 ImageColumn::make('gambar'),
-                TextColumn::make('jabatan.kode')->label('Kode')
-                ->label('jabatan')
+                TextColumn::make('jabatan')
+                ->label('Jabatan')
                 ->sortable()
                 ->searchable(),
                 //

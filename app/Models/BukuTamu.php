@@ -15,15 +15,11 @@ class BukuTamu extends Model
         'created_at',
         'instansi',
         'layanan',
-        'pegawai_id', 
+        'pegawai', 
         'tujuan',
         'topik',
     ];
 
-    public function pegawai()
-    {
-        return $this->belongsTo(Pegawai::class, 'pegawai_id');
-    }
 
 }
 

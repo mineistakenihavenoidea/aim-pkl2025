@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('gambar');
-            $table->unsignedBigInteger('id_jabatan')->nullable();
+            $table->string('jabatan');
             $table->timestamps();
         });
     }

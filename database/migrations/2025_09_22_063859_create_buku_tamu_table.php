@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('instansi');
             $table->string('layanan');
-            $table->bigInteger('pegawai_id')->index('foreign_pegawai');
+            $table->string('pegawai');
             $table->string('tujuan');
             $table->string('topik');
             $table->timestamp('created_at');

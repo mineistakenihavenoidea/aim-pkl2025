@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BukuTamuResource\Pages;
 use App\Filament\Resources\BukuTamuResource\RelationManagers;
 use App\Models\BukuTamu;
+use App\Models\Pegawai;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Components\DatePicker;
@@ -61,11 +62,10 @@ class BukuTamuResource extends Resource
                 'Perpustakaan' => 'Perpustakaan',
                 'Lain-lain' => 'Lain-lain',
                 ]),
-                Select::make('pegawai_id')
-                ->relationship('pegawai', 'nama')
-                ->label('Pegawai')
+                Select::make('pegawai')
+                ->options(Pegawai::pluck('nama', 'nama'))
+                ->label('Jabatan')
                 ->preload()
-                ->required()
                 ->columnSpan(1),
                 textinput::make('tujuan'),
                 textinput::make('topik'),
@@ -95,7 +95,7 @@ class BukuTamuResource extends Resource
                 textcolumn::make('layanan')
                 ->sortable()
                 ->searchable(),
-                TextColumn::make('pegawai.nama')
+                TextColumn::make('pegawai')
                 ->label('Pegawai')
                 ->sortable()
                 ->searchable(),

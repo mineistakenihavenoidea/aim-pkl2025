@@ -30,7 +30,7 @@ class PegawaiController extends Controller
     {
         //
         $narasumber = Pegawai::findOrFail($id);
-        return$narasumber;
+        return$pegawai;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PegawaiResource\Pages;
 use App\Filament\Resources\PegawaiResource\RelationManagers;
 use App\Models\Pegawai;
+use App\Models\Jabatan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,11 +32,11 @@ class PegawaiResource extends Resource
                 grid::make(3)
                 ->schema([
                     TextInput::make('nama'),
-                    select::make('id_jabatan')
-                    ->relationship('jabatan', 'jabatan')
-                    ->preload()
-                    ->columnSpan(1),
-                ])
+                    Select::make('jabatan')
+                    ->options(Jabatan::pluck('jabatan', 'jabatan'))
+                    ->label('Jabatan')
+                    ->required()
+                ]),
                 //
             ]);
     }
@@ -48,7 +49,7 @@ class PegawaiResource extends Resource
                 ->label('Nama')
                 ->sortable()
                 ->searchable(),
-                TextColumn::make('jabatan.jabatan')
+                TextColumn::make('jabatan')
                 ->label('Jabatan')
                 ->sortable()
                 ->searchable(),

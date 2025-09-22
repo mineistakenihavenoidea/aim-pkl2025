@@ -30,8 +30,7 @@ Route::apiResource('berita', BeritaController::class)
         ->only(['index', 'show']);
 Route::apiResource('buku-tamu', BukuTamuController::class)
         ->only(['index', 'store']);
-
-Route::get('/buku-tamu/{id}/pdf', [BukuTamuController::class, 'printSingle']);
+Route::get('/buku-tamu/{id}/print', [BukuTamuController::class, 'printSingle']);
 Route::apiResource('faq', FaqController::class)
         ->only(['index']);
 Route::apiResource('feedback', FeedbackController::class)
