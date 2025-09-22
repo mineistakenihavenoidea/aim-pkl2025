@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BukuTamu;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuTamuController extends Controller
 {
@@ -54,4 +55,20 @@ class BukuTamuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    
+
+    public function printSingle($id)
+    {
+        $tamu = BukuTamu::findOrFail($id);
+
+        $pdf = Pdf::loadView('pdf.print', compact('tamu'))
+                ->setPaper('A4', 'portrait');
+
+        // Stream PDF so browser can open/print directly
+        $filename = 'print_' . preg_replace('/\s+/', '_', $tamu->nama) . '.pdf';
+
+        return $pdf->stream($filename);
+
+    }
+
 }
