@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pegawai', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->integer('id_jabatan')->nullable()->index('jabatan_foreign');
+            $table->string('id_jabatan')->nullable()->index('jabatan_foreign');
             $table->timestamps();
         });
     }
