@@ -25,7 +25,7 @@
     <div class="field"><span class="label">Topik:</span> <span class="value">{{ $tamu->topik }}</span></div>
 
     <div class="footer">
-        Dicetak pada: {{ now()->format('d F Y H:i') }}
+        {{ now()->format('d F Y') }}
     </div>
 </body>
 </html>
