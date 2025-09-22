@@ -32,7 +32,7 @@ class SambutanKepalaResource extends Resource
                 TextInput::make('nama')
                 ->required(),
                 FileUpload::make('gambar')
-                ->directory('uploads/')
+                ->directory('uploads')
                 ->disk('public')
                 ->required(),
                 RichEditor::make('konten')
