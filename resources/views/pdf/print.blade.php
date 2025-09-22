@@ -2,27 +2,96 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Bukti Kunjungan</title>
+    <title>Form Layanan BSIP Aneka Kacang</title>
     <style>
-        body { font-family: DejaVu Sans, sans-serif; font-size: 14px; }
-        h2 { text-align: center; margin-bottom: 25px; }
-        .field { margin-bottom: 10px; }
-        .label { font-weight: bold; width: 150px; display: inline-block; }
-        .value { display: inline-block; }
-        .footer { margin-top: 40px; text-align: right; font-size: 12px; }
+        body { font-family: DejaVu Sans, sans-serif; font-size: 13px; }
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .header h3, .header h4 {
+            margin: 2px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        td.label {
+            width: 120px;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        td.value {
+            padding-left: 5px;
+        }
+        .kritik {
+            margin-top: 20px;
+        }
+        .kritik h4 {
+            margin-bottom: 5px;
+        }
+        .kritik-box {
+            border: 1px solid #000;
+            height: 100px;
+            padding: 5px;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: right;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
-    <h2>Bukti Kunjungan Buku Tamu</h2>
+    <div class="header">
+        <h3>KEMENTERIAN PERTANIAN</h3>
+        <h4>Balai Pengujian Standar Instrumen Tanaman Aneka Kacang</h4>
+        <h4>Form Layanan BSIP Aneka Kacang</h4>
+    </div>
 
-    <div class="field"><span class="label">Nama:</span> <span class="value">{{ $tamu->nama }}</span></div>
-    <div class="field"><span class="label">Nomor:</span> <span class="value">{{ $tamu->nomor }}</span></div>
-    <div class="field"><span class="label">Pekerjaan:</span> <span class="value">{{ $tamu->pekerjaan }}</span></div>
-    <div class="field"><span class="label">Instansi:</span> <span class="value">{{ $tamu->instansi }}</span></div>
-    <div class="field"><span class="label">Layanan:</span> <span class="value">{{ $tamu->layanan }}</span></div>
-    <div class="field"><span class="label">Pegawai:</span> <span class="value">{{ $tamu->pegawai }}</span></div>
-    <div class="field"><span class="label">Tujuan:</span> <span class="value">{{ $tamu->tujuan }}</span></div>
-    <div class="field"><span class="label">Topik:</span> <span class="value">{{ $tamu->topik }}</span></div>
+
+    <table>
+        <tr>
+            <td class="label">Nama</td>
+            <td class="value">: {{ $tamu->nama }}</td>
+        </tr>
+        <tr>
+            <td class="label">Nomor</td>
+            <td class="value">: {{ $tamu->nomor }}</td>
+        </tr>
+        <tr>
+            <td class="label">Pekerjaan</td>
+            <td class="value">: {{ $tamu->pekerjaan }}</td>
+        </tr>
+        <tr>
+            <td class="label">Instansi</td>
+            <td class="value">: {{ $tamu->instansi }}</td>
+        </tr>
+        <tr>
+            <td class="label">Layanan</td>
+            <td class="value">: {{ $tamu->layanan }}</td>
+        </tr>
+        <tr>
+            <td class="label">Pegawai</td>
+            <td class="value">: {{ $tamu->pegawai }}</td>
+        </tr>
+        <tr>
+            <td class="label">Tujuan</td>
+            <td class="value">: {{ $tamu->tujuan }}</td>
+        </tr>
+        <tr>
+            <td class="label">Topik</td>
+            <td class="value">: {{ $tamu->topik }}</td>
+        </tr>
+    </table>
+
+
+    <div class="kritik">
+        <h4>Kritik dan Saran</h4>
+        <div class="kritik-box"></div>
+    </div>
+
 
     <div class="footer">
         {{ now()->format('d F Y') }}
