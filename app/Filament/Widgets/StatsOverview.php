@@ -41,8 +41,7 @@ class StatsOverview extends BaseWidget
                 ->url(FormPertanyaanResource::getUrl('index')),
 
             Card::make('Rata-rata Rating', number_format(
-                Feedback::avg('rating'), 1 // ⬅️ 1 decimal
-            ))
+                Feedback::avg('rating'), 1 )) // ⬅️ 1 decimal
                 ->description('Nilai rata-rata dari semua feedback')
                 ->icon('heroicon-o-star')
                 ->url(\App\Filament\Resources\FeedbackResource::getUrl('index')),

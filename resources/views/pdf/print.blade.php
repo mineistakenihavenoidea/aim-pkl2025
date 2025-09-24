@@ -46,7 +46,7 @@
 <body>
     <div class="header">
         <h3>KEMENTERIAN PERTANIAN</h3>
-        <h4>Balai Pengujian Standar Instrumen Tanaman Aneka Kacang</h4>
+        <h4>Balai Perakitan dan Pengujian Tanaman Aneka Kacang</h4>
         <h4>Form Layanan BSIP Aneka Kacang</h4>
     </div>
 

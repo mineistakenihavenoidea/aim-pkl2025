@@ -9,7 +9,7 @@ class Struktur extends Model
 {
     //
     protected $table = 'struktur';
-    protected $fillable = ['nama','gambar','jabatan'];
+    protected $fillable = ['nama','gambar','jabatan','kode'];
 
     public function getCoverPathAttribute(): ?string
     {
@@ -18,14 +18,5 @@ class Struktur extends Model
             ? asset('storage/' . $m->file_path) // turn into full URL
             : null;
     }
-
-    public function getJabatanTitleAttribute()
-    {
-        return $this->jabatan?->kode; // safe navigation
-    }
-
-    protected $appends = ['jabatan_title'];
-
-    protected $hidden = ['jabatan'];
 
 }
