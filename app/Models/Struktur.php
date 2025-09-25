@@ -11,12 +11,19 @@ class Struktur extends Model
     protected $table = 'struktur';
     protected $fillable = ['nama','gambar','jabatan','kode'];
 
-    public function getCoverPathAttribute(): ?string
+    protected $appends = ['gambar_url'];
+
+    public function getGambarUrlAttribute()
     {
-        $m = $this->cover()->first() ?: $this->media()->first(); // fallback to first media
-        return $m?->file_path
-            ? asset('storage/' . $m->file_path) // turn into full URL
-            : null;
+        if (!$this->gambar) return null;
+
+        if (preg_match('/^https?:\/\//i', $this->gambar)) {
+            return $this->gambar;
+        }
+
+        return asset('storage/' . ltrim($this->gambar, '/'));
     }
+
+    protected $hidden = ['gambar'];
 
 }
