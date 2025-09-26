@@ -102,11 +102,11 @@ class InfografisResource extends Resource
 
     public static function getPluralLabel(): ?string
     {
-        return 'Infografis';
+        return 'Galeri/Infografis';
     }
 
     public static function getModelLabel(): string
     {
-        return 'Infografis';
+        return 'Galeri/Infografis';
     }
 }
