@@ -33,9 +33,11 @@ class PenyediaanBenihResource extends Resource
             ->schema([
                 grid::make(3)
                 ->schema([
-                    Textcolumn::make('nama')
+                    textinput::make('nama')
                     ->required(),
-                    Textcolumn::make('stok')
+                    textinput::make('stok_bs')
+                    ->required(),
+                    textinput::make('stok_fs')
                     ->required(),
                 ])
             ]);
