@@ -32,8 +32,9 @@ class LabUjiResource extends Resource
             ->schema([
                 grid::make(3)
                 ->schema([
-                    RichEditor::make('konten')
-                    ->columnSpanfull(),
+                    TextInput::make('analisis'),
+                    TextInput::make('satuan'),
+                    TextInput::make('tarif'),
             ])
             ]);
     }
@@ -42,12 +43,15 @@ class LabUjiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('konten')
+                TextColumn::make('analisis')
                 ->sortable()
-                ->searchable()
-                ->html()
-                ->wrap()
-                ->limit(250),
+                ->searchable(),
+                TextColumn::make('satuan')
+                ->sortable()
+                ->searchable(),
+                TextColumn::make('tarif')
+                ->sortable()
+                ->searchable(),
                 //
             ])
             ->filters([

@@ -8,5 +8,5 @@ class PenyediaanBenih extends Model
 {
     //
     protected $table = 'penyediaan_benih';
-    protected $fillable = ['konten'];
+    protected $fillable = ['nama','stok'];
 }
