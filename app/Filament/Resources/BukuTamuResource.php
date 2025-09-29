@@ -64,7 +64,7 @@ class BukuTamuResource extends Resource
                 ]),
                 Select::make('pegawai')
                 ->options(Pegawai::pluck('nama', 'nama'))
-                ->label('Jabatan')
+                ->label('Pegawai')
                 ->preload()
                 ->columnSpan(1),
                 textinput::make('tujuan'),
