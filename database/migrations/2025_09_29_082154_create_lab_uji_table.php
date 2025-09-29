@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('lab_uji', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->longText('konten');
+            $table->string('analisis');
+            $table->string('satuan');
+            $table->string('tarif');
             $table->timestamps();
         });
     }
